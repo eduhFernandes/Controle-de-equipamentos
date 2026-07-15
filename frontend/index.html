@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CME</title>
+
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="shortcut icon" href="./src/img/logo-engr.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo">Controle de manutenções de equipamentos</h1>
+
+        <nav>
+            <ul class="naveg-paginas">
+                <li>Home</li>
+                <li><a href="./equipamentos.html">Equipamentos</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-historico">Histórico</button>
+    </header>
+
+    <main>
+        <section class="cards-equipamentos">
+            <article class="card">
+                <h2>Total de equipamentos: <span class="total-equipamentos"></span></h2>
+            </article>
+
+            <article class="card">
+                <h2>Manutenções realizadas: <span class="manut-realizadas"></span>
+            </article>
+
+            <article class="card">
+                <h2>Manutenções pendentes: <span class="manut-pendentes"></span>
+            </article>
+        </section>
+
+        <section class="cadastro">
+            <button class="bnt-cadastro-equip">+ Cadastrar equipamento</button>
+            <button class="bnt-ordem-manut">Adicionar ordem de manutenção</button>
+        </section>
+    </main>
+
+    <section class="screen-cadastro-equip">
+        <button id="exit-cadastro-equip" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2>Cadastro de equipamentos</h2>
+
+        <form class="inputs">
+            <div class="primeira-coluna">
+                <div class="container-label">
+                    <label for="nome-equip">Nome do equipamento</label>
+                    <input id="nome_equipamento" name="nome-equip" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="id-equip">Id equipamento</label>
+                    <input id="id_equipamento" name="id-equip" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="setor">Setor</label>
+                    <input id="setor" name="setor" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="fabricante">Fabricante</label>
+                    <input id="fabricante" name="fabricante" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+            </div>
+
+
+            <div class="segunda-coluna">
+                <div class="container-label">
+                    <label for="modelo">Modelo</label>
+                    <input id="modelo" name="modelo" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="data-aquisicao">Data de aquisição</label>
+                    <input id="data_aquisicao" name="data-aquisicao" type="date">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="status">Status</label>
+                    <select id="status_equip" name="status">
+                        <option value="default">Selecione os status</option>
+                        <option value="operação">Em operação</option>
+                        <option value="manutenção">Em manutenção</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                    <p class="campo-vazio">Selecione uma opção</p>
+                </div>
+
+                <button type="submit" id="btn-add-equip" class="add-btn">Adicionar</button>
+            </div>
+        </form>
+
+
+    </section>
+
+    <section class="screen-ordem-manut">
+        <button id="exit-om" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2>Ordem de manutenção</h2>
+
+        <form class="inputs">
+            <div class="primeira-coluna">
+                <div class="container-label">
+                    <label for="id-equip">ID do equipamento</label>
+                    <input id="id_equip_om" name="id-equip" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="nome-tecnico">Técnico responsável</label>
+                    <input id="nome_tecnico" name="nome-tecnico" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="tipo-manut">Tipo de manutenção</label>
+                    <select id="tipo_manut" name="tipo-manut">
+                        <option value="default">Vazio</option>
+                        <option value="preventiva">Preventiva</option>
+                        <option value="corretiva">Corretiva</option>
+                    </select>
+                    <p class="campo-vazio">Selecione uma opção</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="data-solicitacao">Data da solicitação</label>
+                    <input id="data_solicitacao" name="data-solicitacao" type="date">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="data-execucao">Data de execução</label>
+                    <input id="data_execucao" name="data-execucao" type="date">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+            </div>
+
+            <div class="segunda-coluna">
+                <div class="container-label">
+                    <label for="descricao-problema">Descrição do problema</label>
+                    <input id="descricao_problema" name="descricao-problema" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="solucao">Solução aplicada</label>
+                    <input id="solucao_aplicada" name="solucao" type="text">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <div class="container-label">
+                    <label for="custo">Custo</label>
+                    <input id="custo" name="custo" type="number">
+                    <p class="campo-vazio">Campo vazio</p>
+                </div>
+
+                <button type="submit" id="btn-om" class="add-btn">Adicionar</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="container-historico">
+        <button class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2>Histórico</h2>
+
+        <ul class="lista-historico">
+            <li><i class="fa-solid fa-spinner fa-spin-pulse icone-load"></i></li>
+        </ul>
+    </section>
+
+    <section class="screen-feedback">
+        <h2 class="text-feedback"></h2>
+    </section>
+
+    <script type="module" src="./src/scripts/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"
+        integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

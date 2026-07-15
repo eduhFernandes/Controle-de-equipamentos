@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Historico {
+  acao_criada String?   @db.VarChar(100)
+  msg         String?   @db.VarChar
+  data        DateTime? @db.Timestamptz(6)
+  id          Int       @id @default(autoincrement())
+
+  @@map("historico")
+}
+
+model Equipamento {
+  id_equipamento    String    @id @db.VarChar(100)
+  nome_equipamento  String?   @db.VarChar(100)
+  setor             String?   @db.VarChar(50)
+  fabricante        String?   @db.VarChar(100)
+  modelo            String?   @db.VarChar(100)
+  data_aquisicao    DateTime? @db.Date
+  status_equip      String?   @db.VarChar(40)
+  ultima_manutencao String?   @db.VarChar(30)
+
+  @@map("lista_equipamentos")
+}
+
+model Manutencao {
+  nome_tecnico       String?   @db.VarChar(50)
+  tipo_manut         String?   @db.VarChar(30)
+  data_solicitacao   DateTime? @db.Date
+  data_execucao      DateTime? @db.Date
+  descricao_problema String?   @db.VarChar(200)
+  solucao_aplicada   String?   @db.VarChar(300)
+  custo              Int?
+  id                 Int       @id @default(autoincrement())
+  id_equip_om        String?   @db.VarChar(100)
+
+  @@map("lista_manutencoes")
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: oklch(92.5% 0.005 214.3);
+    color: oklch(93% 0.007 106.5);
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    background-color: oklch(54.7% 0.021 43.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 30px;
+}
+
+a {
+    color: oklch(93% 0.007 106.5);
+    text-decoration: none;
+}
+
+header .titulo {
+    text-transform: uppercase;
+    font-size: 25px;
+    max-width: 500px;
+}
+
+header .naveg-paginas {
+    display: flex;
+    gap: 50px;
+    margin-right: 170px;
+}
+
+header .naveg-paginas li {
+    list-style: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+header .btn-historico {
+    font-size: 14px;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+

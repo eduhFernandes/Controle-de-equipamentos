@@ -1,0 +1,213 @@
+main {
+    padding: 100px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .cards-equipamentos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px 90px;
+}
+
+main .card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 400px;
+    height: 130px;
+    background-color: oklch(54.7% 0.021 43.1);
+}
+
+main .cadastro {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 60px;
+    margin-top: 120px;
+}
+
+main .cadastro button {
+    font-size: 20px;
+    border-radius: 6px;
+    border: none;
+    background-color: oklch(27.5% 0.011 216.9);
+    cursor: pointer;
+    color: oklch(93% 0.007 106.5);
+    width: 350px;
+    padding: 20px 10px;
+}
+
+select {
+    font-size: 20px;
+    padding: 5px 15px;
+    color: gray;
+    cursor: pointer;
+    width: 270px;
+}
+
+.segunda-coluna {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs {
+    display: flex;
+    gap: 30px;
+}
+
+.container-label {
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    list-style: none;
+}
+
+label {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 10px 0 5px 0;
+}
+
+input {
+    font-size: 20px;
+    padding: 5px 15px;
+    width: 270px;
+}
+
+.campo-vazio {
+    display: none;
+    color: oklch(50.5% 0.213 27.518);
+    margin-top: 5px;
+}
+
+.add-btn {
+    margin: 30px 40px 0 40px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background-color: oklch(79.2% 0.209 151.711);
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn-exit {
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    font-size: 22px;
+    cursor: pointer;
+    color: oklch(63.7% 0.237 25.331);
+    background-color: transparent;
+    border: none;
+}
+
+.screen-cadastro-equip,
+.screen-ordem-manut,
+.container-historico {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: oklch(27.5% 0.011 216.9);
+    width: 45%;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.screen-cadastro-equip h2,
+.screen-ordem-manut h2 {
+    text-transform: uppercase;
+    font-size: 21px;
+    margin-bottom: 30px;
+}
+
+.container-historico {
+    max-height: 70%;
+    overflow-y: auto;
+}
+
+.container-historico h2 {
+    margin-bottom: 30px;
+}
+
+.historico-vazio {
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+
+.container-historico .lista-historico {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container-historico .card-historico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid oklch(70.4% 0.04 256.788);
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.container-historico .card-historico h3 {
+    margin-bottom: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.container-historico .section-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-historico .msg-historico {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-right: 20px;
+}
+
+.aparece {
+    display: flex;
+}
+
+.esconde {
+    display: none;
+}
+
+.screen-feedback {
+    opacity: 0;
+    z-index: 5;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 30px 40px;
+    min-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s all ease-in-out;
+}
+
+.aparece-feedback {
+    opacity: 1;
+}
+
+.icone-load{
+    font-size: 30px;
+    margin-top: 20px;
+}

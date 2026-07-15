@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CME</title>
+
+    <link rel="shortcut icon" href="src/img/logo-engr.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/equipamentos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo">Controle de manutenção de equipamentos</h1>
+
+        <nav>
+            <ul class="naveg-paginas">
+                <li><a href="./index.html">Home</a></li>
+                <li>Equipamentos</li>
+            </ul>
+        </nav>
+
+        <button class="btn-historico">Histórico</button>
+    </header>
+
+    <main>
+        <section class="equipamentos">
+            <ul class="list-equipamentos"><i class="fa-solid fa-spinner fa-spin-pulse"></i></ul>
+        </section>
+    </main>
+
+    <section class="screen-edit-equip">
+        <button id="exit-edit" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2>Editando equipamento</h2>
+
+        <form class="inputs">
+            <div class="container-label">
+                <label for="nome-equip">Tipo do equipamento</label>
+                <input id="nome_equipamento" name="nome-equip" type="text">
+                <p class="campo-vazio">Campo vazio</p>
+            </div>
+
+            <div class="container-label">
+                <label for="setor">Setor</label>
+                <input id="setor" name="setor" type="text">
+                <p class="campo-vazio">Campo vazio</p>
+            </div>
+
+            <div class="container-label">
+                <label for="status">Status</label>
+                <select id="status_equip" name="status">
+                    <option value="default">Selecione os status</option>
+                    <option value="operação">Em operação</option>
+                    <option value="manutenção">Em manutenção</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+                <p class="campo-vazio">Campo vazio</p>
+            </div>
+
+            <div class="container-label">
+                <label for="ultima-manut">Ultima manutenção</label>
+                <input id="ultima_manutencao" name="ultima-manut" type="text">
+            </div>
+
+            <button type="submit" id="btn-edit" class="add-btn">Adicionar</button>
+
+        </form>
+    </section>
+
+    <section class="container-historico">
+        <button id="btn-exit-historico" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2>Histórico</h2>
+
+        <ul class="lista-historico">
+            <li><i class="fa-solid fa-spinner fa-spin-pulse icone-load"></i></li>
+        </ul>
+    </section>
+
+    <section class="screen-feedback">
+        <h2 class="text-feedback"></h2>
+    </section>
+
+    <section class="screen-detalhes">
+        <button id="exit-detalhes" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
+
+        <h2 class="titulo-detalhes">Mais detalhes</h2>
+
+        <ul class="todas-info">
+            <li><strong>Nome: </strong><span id="info_nome_equipamento"></span></li>
+            <li><strong>Id: </strong><span id="info_id_equipamento"></span></li>
+            <li><strong>Setor: </strong><span id="info_setor"></span></li>
+            <li><strong>Fabricante: </strong><span id="info_fabricante"></span></li>
+            <li><strong>Modelo: </strong><span id="info_modelo"></span></li>
+            <li><strong>Data de aquisição: </strong><span id="info_data_aquisicao"></span></li>
+            <li><strong>Status: </strong><span id="info_status_equip"></span></li>
+        </ul>
+
+        <h3 class="section-manut">Manutenções realizadas:</h3>
+
+        <ul class="info-completa-manutencoes">
+            <!-- <li>
+                <article class="manutencao">
+                    <p>Manutenção <span>preventiva</span></p>
+
+                    <ul class="todas-info-manutencao">
+                        <li>Tecnico responsável: <span>Julio</span></li>
+                        <li>Data da solicitação: <span>01/07/26</span></li>
+                        <li>Data da execução: <span>04/07/26</span></li>
+                        <li>Descrição do problema: <span>Faltou oleo</span></li>
+                        <li>Solução aplicada: <span>Colocado oleo</span></li>
+                        <li>Custo: R$<span>200,00</span></li>
+                    </ul>
+                </article>
+            </li>
+
+            <li>
+                <article class="manutencao">
+                    <p>Manutenção <span>preventiva</span></p>
+
+                    <ul class="todas-info-manutencao">
+                        <li>Tecnico responsável: <span>Julio</span></li>
+                        <li>Data da solicitação: <span>01/07/26</span></li>
+                        <li>Data da execução: <span>04/07/26</span></li>
+                        <li>Descrição do problema: <span>Faltou oleo</span></li>
+                        <li>Solução aplicada: <span>Colocado oleo</span></li>
+                        <li>Custo: R$<span>200,00</span></li>
+                    </ul>
+                </article>
+            </li> -->
+        </ul>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"
+        integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./src/scripts/equipamentos.js"></script>
+</body>
+
+</html>
