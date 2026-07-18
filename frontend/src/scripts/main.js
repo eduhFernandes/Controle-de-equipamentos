@@ -56,7 +56,7 @@ server.get('/info_gerais').then(res => {
 })
 
 btnHistorico.addEventListener('click', () => {
-    document.querySelector(".container-historico").classList.add("aparece")
+    abrePopup(document.querySelector(".container-historico"))
 
     server.get('/historico').then(res => {
         containerHistorico.innerHTML = ''
@@ -83,7 +83,7 @@ btnHistorico.addEventListener('click', () => {
 
                 <div class="section-info">
                     <p class="msg-historico">${item.msg}</p>
-                    <p>Data: <span>${dataFormatBR} - ${hourFormatBR}</span></p>
+                    <p class="text-date">Data: <span>${dataFormatBR} - ${hourFormatBR}</span></p>
                 </div>
             </li>
         `
@@ -92,7 +92,7 @@ btnHistorico.addEventListener('click', () => {
 })
 
 btnCadastroEquip.addEventListener('click', () => {
-    screenCadastroEquip.classList.add("aparece")
+    abrePopup(screenCadastroEquip)
 
     document.getElementById('btn-add-equip').addEventListener("click", (e) => {
         e.preventDefault()
@@ -101,7 +101,7 @@ btnCadastroEquip.addEventListener('click', () => {
 })
 
 btnOrdemManut.addEventListener('click', () => {
-    screenOrdemManut.classList.add("aparece")
+    abrePopup(screenOrdemManut)
 
     document.getElementById('btn-om').addEventListener("click", (e) => {
         e.preventDefault()
@@ -111,7 +111,7 @@ btnOrdemManut.addEventListener('click', () => {
 
 btnsExit.forEach(exit => {
     exit.addEventListener('click', () => {
-        exit.parentElement.classList.remove('aparece')
+        fechaPopup(exit.parentElement)
 
         if (exit.id === 'exit-cadastro-equip') {
             limpaInputs(selectStatusEquip, inputsCadastroEquip)
@@ -190,4 +190,20 @@ function limpaInputs(selectName, inputsArray) {
     } else {
         selectName.parentElement.querySelector('.campo-vazio').classList.remove('aparece')
     }
+}
+
+function abrePopup(screen) {
+    screen.classList.add("aparece")
+
+    document.querySelector('main').style.filter = 'blur(3px)'
+    document.querySelector('header').style.filter = 'blur(3px)'
+    document.querySelector('body').style.overflow = 'hidden'
+}
+
+function fechaPopup(screen) {
+    screen.classList.remove("aparece")
+
+    document.querySelector('main').style.filter = 'blur(0)'
+    document.querySelector('header').style.filter = 'blur(0)'
+    document.querySelector('body').style.overflow = 'auto'
 }

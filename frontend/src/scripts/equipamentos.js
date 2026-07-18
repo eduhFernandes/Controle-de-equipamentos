@@ -41,8 +41,6 @@ server.get('/lista_equipamentos').then((res) => {
             server.get(`/equipamento/${idEquipamento}`).then(res => {
                 const infoEquipamento = res.data
 
-                console.log(infoEquipamento);
-                
                 spanInfos.forEach(span => {
                     for (const item in infoEquipamento) {
                         if (span.id === 'info_' + item) {
@@ -50,7 +48,7 @@ server.get('/lista_equipamentos').then((res) => {
                             document.getElementById(`${span.id}`).innerText = infoEquipamento[item]
                         }
                     }
-                    
+
                 })
             })
 
@@ -74,7 +72,7 @@ server.get('/lista_equipamentos').then((res) => {
                             <p>Manutenção <span>${manutencao.tipo_manut}</span></p>
 
                             <ul class="todas-info-manutencao">
-                                <li>Tecnico responsável: <span>${manutencao.nome_tecnico}</span></li>
+                                <li><strong>Tecnico responsável: </strong><span>${manutencao.nome_tecnico}</span></li>
                                 <li>Data da solicitação: <span>${manutencao.data_solicitacao}</span></li>
                                 <li>Data da execução: <span>${manutencao.data_execucao}</span></li>
                                 <li>Descrição do problema: <span>${manutencao.descricao_problema}</span></li>
@@ -87,12 +85,11 @@ server.get('/lista_equipamentos').then((res) => {
                 })
             })
 
-            document.querySelector('.screen-detalhes').classList.add('aparece')
+            abrePopup(document.querySelector('.screen-detalhes'))
 
             document.getElementById('exit-detalhes').addEventListener('click', () => {
-                document.querySelector('.screen-detalhes').classList.remove('aparece')
+                fechaPopup(document.querySelector('.screen-detalhes'))
             })
-
         })
     })
 
@@ -105,7 +102,7 @@ server.get('/lista_equipamentos').then((res) => {
             const inputs = document.querySelectorAll('.inputs input')
             const select = document.getElementById('status_equip')
 
-            document.querySelector('.screen-edit-equip').classList.add('aparece')
+            abrePopup(document.querySelector('.screen-edit-equip'))
             document.getElementById('ultima_manutencao').disabled = true;
 
             inputs.forEach((input, index) => {
@@ -125,10 +122,10 @@ server.get('/lista_equipamentos').then((res) => {
             })
 
             exit.addEventListener('click', () => {
-                exit.parentElement.classList.remove('aparece')
+                fechaPopup(exit.parentElement)
             })
 
-            document.getElementById('btn-edit').addEventListener('click', (e) => {
+            document.getElementById('btn-salva-edit').addEventListener('click', (e) => {
                 e.preventDefault()
 
                 const verificaSelectIgual = select.options[select.selectedIndex].text === infosCard[3].innerText
@@ -183,11 +180,10 @@ server.get('/lista_equipamentos').then((res) => {
 })
 
 document.querySelector('.btn-historico').addEventListener('click', () => {
-    document.querySelector(".container-historico").classList.add("aparece")
+    abrePopup(document.querySelector(".container-historico"))
 
     const containerHistorico = document.querySelector('.lista-historico')
     const btnExit = document.getElementById('btn-exit-historico')
-    
 
     server.get('/historico').then(res => {
         containerHistorico.innerHTML = ''
@@ -222,6 +218,22 @@ document.querySelector('.btn-historico').addEventListener('click', () => {
     })
 
     btnExit.addEventListener('click', () => {
-        btnExit.parentElement.classList.remove('aparece')
+        fechaPopup(btnExit.parentElement)
     })
 })
+
+function abrePopup(screen) {
+    screen.classList.add("aparece")
+
+    document.querySelector('main').style.filter = 'blur(3px)'
+    document.querySelector('header').style.filter = 'blur(3px)'
+    document.querySelector('body').style.overflow = 'hidden'
+}
+
+function fechaPopup(screen) {
+    screen.classList.remove("aparece")
+
+    document.querySelector('main').style.filter = 'blur(0)'
+    document.querySelector('header').style.filter = 'blur(0)'
+    document.querySelector('body').style.overflow = 'auto'
+}
