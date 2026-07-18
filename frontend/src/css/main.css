@@ -9,7 +9,7 @@ main .cards-equipamentos {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px 90px;
+    gap: 40px 90px;
 }
 
 main .card {
@@ -47,7 +47,7 @@ select {
     padding: 5px 15px;
     color: gray;
     cursor: pointer;
-    width: 270px;
+    width: 100%;
 }
 
 .segunda-coluna {
@@ -78,7 +78,7 @@ label {
 input {
     font-size: 20px;
     padding: 5px 15px;
-    width: 270px;
+    width: 100%;
 }
 
 .campo-vazio {
@@ -111,18 +111,8 @@ input {
 .screen-cadastro-equip,
 .screen-ordem-manut,
 .container-historico {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: oklch(27.5% 0.011 216.9);
-    width: 45%;
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 50px;
+    width: 730px;
+    position: fixed;
 }
 
 .screen-cadastro-equip h2,
@@ -159,7 +149,7 @@ input {
     justify-content: center;
     width: 100%;
     border: 1px solid oklch(70.4% 0.04 256.788);
-    padding: 20px 20px;
+    padding: 20px;
     text-align: center;
     border-radius: 8px;
 }
@@ -207,7 +197,85 @@ input {
     opacity: 1;
 }
 
-.icone-load{
+.icone-load {
     font-size: 30px;
     margin-top: 20px;
+}
+
+@media (max-width: 580px) {
+    .inputs {
+        flex-direction: column;
+        gap: 0px;
+        width: 70%;
+        max-height: 450px;
+        overflow: auto;
+    }
+
+    .container-historico .section-info .text-date {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 510px) {
+    main .cadastro button {
+        font-size: 16px;
+    }
+
+    main .cards-equipamentos .card {
+        width: 95%;
+        padding: 8px 30px;
+        font-size: 14px;
+    }
+
+    .screen-cadastro-equip h2,
+    .screen-ordem-manut h2 {
+        font-size: 17px;
+        text-align: center;
+        padding-right: 10px;
+        margin-bottom: 30px;
+    }
+
+    .inputs {
+        width: 90%;
+    }
+
+    .btn-exit {
+        right: 40px;
+        font-size: 19px;
+    }
+
+    .container-historico .section-info {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .container-historico .msg-historico {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 410px) {
+    main {
+        width: 100%;
+        padding: 60px 10px;
+    }
+
+    main .cadastro {
+        width: 100%;
+    }
+
+    main .cards-equipamentos .card {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .inputs {
+        width: 100%;
+    }
+
+    main .cadastro button {
+        width: 90%;
+        padding: 20px 10px;
+    }
 }

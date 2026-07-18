@@ -30,11 +30,12 @@
 
     <main>
         <section class="equipamentos">
-            <ul class="list-equipamentos"><i class="fa-solid fa-spinner fa-spin-pulse"></i></ul>
+            <!-- <i class="fa-solid fa-spinner fa-spin-pulse"></i> -->
+            <ul class="list-equipamentos"></ul>
         </section>
     </main>
 
-    <section class="screen-edit-equip">
+    <section class="screen-edit-equip popup">
         <button id="exit-edit" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
 
         <h2>Editando equipamento</h2>
@@ -68,12 +69,12 @@
                 <input id="ultima_manutencao" name="ultima-manut" type="text">
             </div>
 
-            <button type="submit" id="btn-edit" class="add-btn">Adicionar</button>
+            <button type="submit" id="btn-salva-edit" class="add-btn">Adicionar</button>
 
         </form>
     </section>
 
-    <section class="container-historico">
+    <section class="container-historico popup">
         <button id="btn-exit-historico" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
 
         <h2>Histórico</h2>
@@ -87,7 +88,7 @@
         <h2 class="text-feedback"></h2>
     </section>
 
-    <section class="screen-detalhes">
+    <section class="screen-detalhes popup">
         <button id="exit-detalhes" class="btn-exit"><i class="fa-regular fa-circle-xmark"></i></button>
 
         <h2 class="titulo-detalhes">Mais detalhes</h2>

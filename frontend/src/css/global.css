@@ -29,6 +29,7 @@ header .titulo {
     text-transform: uppercase;
     font-size: 25px;
     max-width: 500px;
+    margin-right: 20px;
 }
 
 header .naveg-paginas {
@@ -54,3 +55,48 @@ header .btn-historico {
     cursor: pointer;
 }
 
+.popup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: oklch(27.5% 0.011 216.9);
+    width: 600px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    header .titulo {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    header .naveg-paginas {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 510px) {
+    header .titulo {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    header .naveg-paginas {
+        gap: 20px;
+    }
+
+    header .naveg-paginas li {
+        font-size: 17px;
+    }
+}
